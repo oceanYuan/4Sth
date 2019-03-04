@@ -1,50 +1,42 @@
-package ocean_user.controller;
+package ocean_article.controller;
 
-import io.jsonwebtoken.Jwt;
-import ocean_user.entity.Admin;
+import ocean_article.entity.Article;
+import ocean_article.service.ArticleService;
 import ocean_user.entity.PageResult;
 import ocean_user.entity.Result;
 import ocean_user.entity.StatusCode;
-import ocean_user.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
-import utils.JwtUtil;
 
-import java.util.HashMap;
 import java.util.Map;
+
 @RestController
 @CrossOrigin
-@RequestMapping("/admin")
-public class AdminController {
-
+@RequestMapping("/article")
+public class ArticleController {
     @Autowired
-    private AdminService adminService;
+    private ArticleService articleService;
 
-    @Autowired
-    private JwtUtil jwtUtil;
-
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public Result login(@RequestBody Admin admin){
-        Admin adminLogin = adminService.login(admin);
-        if(adminLogin==null){
-            return new Result(false, StatusCode.LOGINERROR, "登录失败");
-        }
-        //使得前后端可以通话的操作。采用JWT来实现。
-        //生成令牌
-        String token = jwtUtil.createJWT(adminLogin.getId(), adminLogin.getLoginname(), "admin");
-        Map<String, Object> map = new HashMap<>();
-        map.put("token", token);
-        map.put("role", "admin");
-        return new Result(true, StatusCode.OK, "登录成功", map);
+    @RequestMapping(value = "/examine/{articleId}", method= RequestMethod.PUT)
+    public Result examine(@PathVariable String articleId){
+        articleService.examine(articleId);
+        return new Result(true, StatusCode.OK,"操作成功");
     }
+
+    @RequestMapping(value = "/thumbup/{articleId}", method= RequestMethod.PUT)
+    public Result updateThumbup(@PathVariable String articleId){
+        articleService.updateThumbup(articleId);
+        return new Result(true,StatusCode.OK,"操作成功");
+    }
+
     /**
      * 查询全部数据
      * @return
      */
     @RequestMapping(method= RequestMethod.GET)
     public Result findAll(){
-        return new Result(true,StatusCode.OK,"查询成功",adminService.findAll());
+        return new Result(true,StatusCode.OK,"查询成功",articleService.findAll());
     }
 
     /**
@@ -54,7 +46,7 @@ public class AdminController {
      */
     @RequestMapping(value="/{id}",method= RequestMethod.GET)
     public Result findById(@PathVariable String id){
-        return new Result(true,StatusCode.OK,"查询成功",adminService.findById(id));
+        return new Result(true,StatusCode.OK,"查询成功",articleService.findById(id));
     }
 
 
@@ -67,9 +59,9 @@ public class AdminController {
      */
     @RequestMapping(value="/search/{page}/{size}",method=RequestMethod.POST)
     public Result findSearch(@RequestBody Map searchMap , @PathVariable int page, @PathVariable int size){
-        Page<Admin> pageList = adminService.findSearch(searchMap, page, size);
+        Page<Article> pageList = articleService.findSearch(searchMap, page, size);
         return  new Result(true,StatusCode.OK,"查询成功",
-                new PageResult<>(pageList.getTotalElements(), pageList.getContent()) );
+                new PageResult<Article>(pageList.getTotalElements(), pageList.getContent()) );
     }
 
     /**
@@ -79,27 +71,27 @@ public class AdminController {
      */
     @RequestMapping(value="/search",method = RequestMethod.POST)
     public Result findSearch( @RequestBody Map searchMap){
-        return new Result(true,StatusCode.OK,"查询成功",adminService.findSearch(searchMap));
+        return new Result(true,StatusCode.OK,"查询成功",articleService.findSearch(searchMap));
     }
 
     /**
      * 增加
-     * @param admin
+     * @param article
      */
     @RequestMapping(method=RequestMethod.POST)
-    public Result add(@RequestBody Admin admin  ){
-        adminService.add(admin);
+    public Result add(@RequestBody Article article  ){
+        articleService.add(article);
         return new Result(true,StatusCode.OK,"增加成功");
     }
 
     /**
      * 修改
-     * @param admin
+     * @param article
      */
     @RequestMapping(value="/{id}",method= RequestMethod.PUT)
-    public Result update(@RequestBody Admin admin, @PathVariable String id ){
-        admin.setId(id);
-        adminService.update(admin);
+    public Result update(@RequestBody Article article, @PathVariable String id ){
+        article.setId(id);
+        articleService.update(article);
         return new Result(true,StatusCode.OK,"修改成功");
     }
 
@@ -109,7 +101,7 @@ public class AdminController {
      */
     @RequestMapping(value="/{id}",method= RequestMethod.DELETE)
     public Result delete(@PathVariable String id ){
-        adminService.deleteById(id);
+        articleService.deleteById(id);
         return new Result(true,StatusCode.OK,"删除成功");
     }
 }

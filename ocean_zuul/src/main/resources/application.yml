@@ -1,0 +1,25 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: ocean-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:6868/eureka
+  instance:
+    prefer-ip-address: true
+zuul:
+  routes:
+    ocean-article:
+      path: /article/**
+      serviceId: ocean-article
+    ocean-base:
+      path: /base/**
+      serviceId: ocean-base
+    ocean-user:
+      path: /user/**
+      serviceId: ocean-user
+jwt:
+  config:
+    key: ocean-key

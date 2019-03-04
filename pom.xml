@@ -16,6 +16,10 @@
         <module>ocean_base</module>
         <module>ocean_eureka</module>
         <module>ocean_user</module>
+        <module>ocean_sms</module>
+        <module>ocean_zuul</module>
+        <module>ocean_article</module>
+        <module>ocean_email</module>
     </modules>
 
     <parent>

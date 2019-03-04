@@ -1,0 +1,22 @@
+
+spring:
+  mail:
+    host: smtp.163.com #SMTP服务器地址
+    username: 13573211397 #登陆账号
+    password: XXXX #登陆密码（或授权码）
+    properties:
+      from:  13573211397@163.com #邮件发信人（即真实邮箱）
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+    servlet:
+      content-type: text/html
+  servlet:
+    multipart:
+      max-file-size: 10MB #限制单个文件大小
+      max-request-size: 50MB #限制请求总量
+server:
+  port: 8006

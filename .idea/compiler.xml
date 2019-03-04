@@ -6,19 +6,27 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ocean_article" />
         <module name="ocean_base" />
         <module name="ocean_common" />
+        <module name="ocean_email" />
         <module name="ocean_eureka" />
+        <module name="ocean_sms" />
         <module name="ocean_user" />
+        <module name="ocean_zuul" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ocean_article" options="-parameters" />
       <module name="ocean_base" options="-parameters" />
       <module name="ocean_common" options="-parameters" />
+      <module name="ocean_email" options="-parameters" />
       <module name="ocean_eureka" options="-parameters" />
+      <module name="ocean_sms" options="-parameters" />
       <module name="ocean_user" options="-parameters" />
+      <module name="ocean_zuul" options="-parameters" />
     </option>
   </component>
 </project>

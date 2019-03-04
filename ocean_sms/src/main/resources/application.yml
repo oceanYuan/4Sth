@@ -1,0 +1,13 @@
+server:
+  port: 8003
+spring:
+  application:
+    name: ocean-sms
+  rabbitmq:
+    host: 127.0.0.1
+aliyun:
+  sms:
+    accessKeyId:
+    accessKeySecret:
+    template_code:
+    sign_name:
