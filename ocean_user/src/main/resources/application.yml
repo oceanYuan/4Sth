@@ -1,0 +1,26 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: ocean-user
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ocean_user?characterEncoding=UTF8&useSSL=false
+    username: root
+    password: 123456
+  jpa:
+    database: mysql
+  redis:
+    host: 127.0.0.1
+  rabbitmq:
+    host: 127.0.0.1
+jwt:
+  config:
+    key: ocean-key
+    time: 3600000
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:6868/eureka
