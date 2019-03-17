@@ -1,4 +1,4 @@
-聊天问答网站
+﻿聊天问答网站
 后端架构：SpringBoot+SpringCloud+JPA+（Spring全家桶）
 4Sth:{
 
@@ -18,4 +18,5 @@ user:jwt+springSecurity 个人用户加密，登录。
 
 zuul:后端网关。
 
+qa:问答。
 }
