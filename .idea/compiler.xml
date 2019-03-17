@@ -11,6 +11,7 @@
         <module name="ocean_common" />
         <module name="ocean_email" />
         <module name="ocean_eureka" />
+        <module name="ocean_qa" />
         <module name="ocean_sms" />
         <module name="ocean_user" />
         <module name="ocean_zuul" />
@@ -24,6 +25,7 @@
       <module name="ocean_common" options="-parameters" />
       <module name="ocean_email" options="-parameters" />
       <module name="ocean_eureka" options="-parameters" />
+      <module name="ocean_qa" options="-parameters" />
       <module name="ocean_sms" options="-parameters" />
       <module name="ocean_user" options="-parameters" />
       <module name="ocean_zuul" options="-parameters" />

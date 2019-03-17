@@ -7,6 +7,7 @@
     <file url="file://$PROJECT_DIR$/ocean_common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ocean_email" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ocean_eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ocean_qa" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ocean_sms" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ocean_user" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ocean_zuul" charset="UTF-8" />

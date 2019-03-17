@@ -20,6 +20,7 @@
         <module>ocean_zuul</module>
         <module>ocean_article</module>
         <module>ocean_email</module>
+        <module>ocean_qa</module>
     </modules>
 
     <parent>
