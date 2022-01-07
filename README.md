@@ -23,9 +23,10 @@ qa:问答。
 
 2022/01/07 更新日志
 TODO:
-1.nacos 代替eureka 配置文件迁移到nacos
-2.mybatis-plus 代替jpa 
-3.多租户模式改造
-4.读写分离
+1.nacos 代替eureka 配置文件迁移到nacos 
+2.gateway 代替 zuul
+3.mybatis-plus 代替jpa 
+4.多租户模式改造
+5.读写分离
 
 更新时间: 2022/01/07~ 2022/02/02
